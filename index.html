@@ -2073,6 +2073,206 @@ window.cookiehub.load(cpm);
                     </div>
                 </div>
             </section>
+
+
+
+
+          
+
+            <div class="gallery-container">
+                <video id="main-video" class="main-video" autoplay muted loop>
+                  <source src="wp-content/uploads/2024/01/10.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="video-list-container">
+                  <div class="video-list" id="video-list">
+                    <div class="video-item" onclick="playVideo('wp-content/uploads/2024/01/2.mp4')">
+                      <video autoplay muted loop>
+                        <source src="wp-content/uploads/2024/01/2.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-item" onclick="playVideo('wp-content/uploads/2024/01/3.mp4')">
+                      <video autoplay muted loop>
+                        <source src="wp-content/uploads/2024/01/3.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-item" onclick="playVideo('wp-content/uploads/2024/01/4.mp4')">
+                      <video autoplay muted loop>
+                        <source src="wp-content/uploads/2024/01/4.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-item" onclick="playVideo('wp-content/uploads/2024/01/5.mp4')">
+                      <video autoplay muted loop>
+                        <source src="wp-content/uploads/2024/01/5.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="video-item" onclick="playVideo('wp-content/uploads/2024/01/6.mp4')">
+                      <video autoplay muted loop>
+                        <source src="wp-content/uploads/2024/01/6.mp4" type="video/mp4">
+                      </video>
+                    </div>
+
+
+                    <div class="video-item" onclick="playVideo('wp-content/uploads/2024/01/8.mp4')">
+                        <video autoplay loop>
+                          <source src="wp-content/uploads/2024/01/8.mp4" type="video/mp4">
+                        </video>
+                      </div>
+
+
+                      <div class="video-item" onclick="playVideo('wp-content/uploads/2024/01/7.mp4')">
+                        <video autoplay muted loop>
+                          <source src="wp-content/uploads/2024/01/7.mp4" type="video/mp4">
+                        </video>
+                      </div>
+
+
+                      <div class="video-item" onclick="playVideo('wp-content/uploads/2024/01/9.mp4')">
+                        <video autoplay loop>
+                          <source src="wp-content/uploads/2024/01/9.mp4" type="video/mp4">
+                        </video>
+                      </div>
+
+
+                      <div class="video-item" onclick="playVideo('wp-content/uploads/2024/01/6.mp4')">
+                        <video autoplay muted loop>
+                          <source src="wp-content/uploads/2024/01/6.mp4" type="video/mp4">
+                        </video>
+                      </div>
+
+                    <div class="video-item" onclick="playVideo('wp-content/uploads/2024/01/1.mp4')">
+                      <video autoplay muted loop>
+                        <source src="wp-content/uploads/2024/01/1.mp4" type="video/mp4">
+                      </video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <style>
+                .gallery-container {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  gap: 20px;
+                  max-width: 1200px;
+                  margin: auto;
+                  padding: 20px;
+                }
+              
+                .main-video {
+                  width: 100%;
+                  max-width: 800px;
+                  border-radius: 8px;
+                  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                  aspect-ratio: 16/9;
+                }
+              
+                .video-list-container {
+                  display: flex;
+                  justify-content: center;
+                  width: 100%;
+                }
+              
+                .video-list {
+                  display: flex;
+                  gap: 10px;
+                  overflow-x: auto;
+                  scrollbar-width: thin;
+                  padding: 10px 0;
+                }
+              
+                .video-list::-webkit-scrollbar {
+                  height: 5px;
+                }
+              
+                .video-list::-webkit-scrollbar-thumb {
+                  background: rgba(0, 0, 0, 0.4);
+                  border-radius: 5px;
+                }
+              
+                .video-item {
+                  width: 120px;
+                  aspect-ratio: 9/16;
+                  border-radius: 5px;
+                  overflow: hidden;
+                  cursor: pointer;
+                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                }
+              
+                .video-item video {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              
+                @media (min-width: 768px) {
+                  .gallery-container {
+                    flex-direction: row;
+                    align-items: flex-start;
+                  }
+              
+                  .main-video {
+                    max-height: 500px;
+                  }
+              
+                  .video-list-container {
+                    flex-direction: column;
+                    width: 150px;
+                    max-height: 500px;
+                    overflow-y: auto;
+                  }
+              
+                  .video-list {
+                    flex-direction: column;
+                    gap: 15px;
+                  }
+              
+                  .video-item {
+                    width: 100%;
+                    aspect-ratio: 16/9;
+                  }
+                }
+              
+                @media (max-width: 767px) {
+                  .gallery-container {
+                    flex-direction: column;
+                  }
+              
+                  .main-video {
+                    width: 100%;
+                    max-width: 100%;
+                    height: auto;
+                    aspect-ratio: 9/16;
+                  }
+              
+                  .video-list-container {
+                    flex-direction: row;
+                    justify-content: center;
+                  }
+              
+                  .video-list {
+                    flex-direction: row;
+                    gap: 10px;
+                    overflow-x: auto;
+                  }
+              
+                  .video-item {
+                    width: 100px;
+                    aspect-ratio: 9/16;
+                  }
+                }
+              </style>
+              
+              <script>
+                function playVideo(videoSrc) {
+                  const mainVideo = document.getElementById('main-video');
+                  mainVideo.src = videoSrc;
+                  mainVideo.play();
+                }
+              </script>
+
+
             <section
                 class="elementor-section elementor-top-section elementor-element elementor-element-149265d elementor-section-content-middle fix elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                 data-id="149265d" data-element_type="section">
