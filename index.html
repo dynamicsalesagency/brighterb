@@ -2080,6 +2080,492 @@ window.cookiehub.load(cpm);
 
 
 
+
+          
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff; /* 60% white */
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #222; /* Black for headings */
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .divider {
+            height: 4px;
+            width: 80px;
+            background: #27ae60; /* Green accent */
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            color: #555;
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #27ae60; /* Green */
+            color: white;
+            border-color: #27ae60;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            border: 1px solid #f0f0f0;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-image {
+            height: 240px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 20px;
+            padding-top: 50px;
+        }
+        
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .project-tag {
+            background: rgba(39, 174, 96, 0.15); /* Green with transparency */
+            color: #27ae60;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .project-tag.marketing {
+            background: rgba(33, 150, 83, 0.15);
+            color: #219653;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #222;
+            font-weight: 600;
+        }
+        
+        .project-description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #27ae60;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .project-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #27ae60;
+            transition: width 0.3s ease;
+        }
+        
+        .project-link:hover:after {
+            width: 100%;
+        }
+        
+        .view-all {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #27ae60;
+            color: white;
+            padding: 16px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(39, 174, 96, 0.3);
+            border: 2px solid #27ae60;
+        }
+        
+        .view-all-btn:hover {
+            background: white;
+            color: #27ae60;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 12px;
+            width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters {
+                justify-content: flex-start;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .stat-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Project Showcase</h1>
+            <div class="divider"></div>
+            <p class="subtitle">Explore my portfolio of web design and digital marketing projects. Each website represents a unique solution tailored to client needs, combining aesthetics with functionality.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="filters">
+            <button class="filter-btn active">All Projects</button>
+            <button class="filter-btn">Web Design</button>
+            <button class="filter-btn">E-Commerce</button>
+            <button class="filter-btn">Digital Marketing</button>
+            <button class="filter-btn">Branding</button>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Harlan Holden Website">
+                    <div class="card-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">Web Design</span>
+                            <span class="project-tag marketing">Digital Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="project-title">Harlan Holden</h3>
+                    <p class="project-description">A sophisticated portfolio website for a renowned artist, featuring a clean design with vibrant accent colors to showcase artwork.</p>
+                    <a href="https://harlanholden.com/" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80" alt="Wehilion UK Website">
+                    <div class="card-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">E-Commerce</span>
+                            <span class="project-tag marketing">Digital Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="project-title">Wehilion UK</h3>
+                    <p class="project-description">Modern e-commerce platform with seamless shopping experience, optimized for conversions and integrated with marketing automation.</p>
+                    <a href="https://wehilion.uk/" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Jukira Website">
+                    <div class="card-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">Web Design</span>
+                            <span class="project-tag marketing">Digital Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="project-title">Jukira</h3>
+                    <p class="project-description">Corporate website with a focus on brand identity and lead generation, featuring interactive elements and a clean, professional layout.</p>
+                    <a href="https://jukira.com/" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Anihaan Website">
+                    <div class="card-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">Web Design</span>
+                            <span class="project-tag">Branding</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="project-title">Anihaan</h3>
+                    <p class="project-description">Minimalist design with bold typography for a creative studio, showcasing their portfolio in an innovative grid layout.</p>
+                    <a href="https://anihaan.com/" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Lisa Loren Website">
+                    <div class="card-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">E-Commerce</span>
+                            <span class="project-tag marketing">Digital Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="project-title">Lisa Loren</h3>
+                    <p class="project-description">Fashion e-commerce platform featuring a visually-rich product showcase, intuitive navigation, and integrated social proof.</p>
+                    <a href="https://lisaloren.com/" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="project-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Charkha Tales Website">
+                    <div class="card-overlay">
+                        <div class="project-tags">
+                            <span class="project-tag">Web Design</span>
+                            <span class="project-tag marketing">Digital Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="project-title">Charkha Tales</h3>
+                    <p class="project-description">Cultural storytelling platform with immersive multimedia experiences, designed to engage audiences through visual narratives.</p>
+                    <a href="https://charkhatales.com/" class="project-link" target="_blank">
+                        Visit Website <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-all">
+            <a href="#" class="view-all-btn">
+                View More Projects <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Web Design & Digital Marketing Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // In a real implementation, you would filter projects here
+                // For this demo, we'll just show all projects
+                document.querySelectorAll('.project-card').forEach(card => {
+                    card.style.display = 'block';
+                });
+            });
+        });
+        
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach((card, index) => {
+                // Add delay for staggered animation
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+
+
+
+
+
           
 
             <div class="gallery-container">
