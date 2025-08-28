@@ -9,19 +9,41 @@
   <meta name="facebook-domain-verification" content="o85ou1w0h4ny81yx3025vh0b9tusct" />
 
 
-  <div id="google_translate_element"></div>
+<div id="google_translate_element" style="display:none;"></div>
 
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement(
-      {pageLanguage: 'en', includedLanguages: 'fr,de,es,zh,ar,hi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 
+      {pageLanguage: 'en'}, 
       'google_translate_element'
     );
   }
+
+  // Auto detect browser language and trigger translation
+  function autoTranslate() {
+    var userLang = navigator.language || navigator.userLanguage; 
+    var lang = userLang.split('-')[0]; // e.g. "fr" from "fr-FR"
+
+    // Check if not English, then auto translate
+    if (lang !== "en") {
+      var select = document.querySelector("select.goog-te-combo");
+      if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event("change"));
+      }
+    }
+  }
+
+  // Run autoTranslate after Google Translate loads
+  window.addEventListener('load', function() {
+    setTimeout(autoTranslate, 2000); 
+  });
 </script>
+
 <script type="text/javascript" 
   src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
 </script>
+
 
 
 
@@ -4820,6 +4842,7 @@ window.cookiehub.load(cpm);
 <!-- Mirrored from themexriver.com/wp/choicy-wp/home-03-onepage/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Jan 2025 09:38:10 GMT -->
 
 </html>
+
 
 
 
