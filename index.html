@@ -1064,22 +1064,53 @@
             </section>
 
 
- <h2>Open Wi-Fi Settings</h2>
-  <p>Click the button below to open your Wi-Fi settings.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Android General Settings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f7f7f7;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h2>Open General Settings</h2>
+  <p>Click the button below to open your device’s general settings.</p>
 
   <button onclick="openSettings()">Open Settings</button>
 
   <script>
     function openSettings() {
       if (/Android/i.test(navigator.userAgent)) {
-        // Try to open Android Wi-Fi settings
-        window.location.href = "intent:#Intent;action=android.settings.WIFI_SETTINGS;end";
+        // Try to open Android General Settings
+        window.location.href = "intent:#Intent;action=android.settings.SETTINGS;end";
       } else {
         // Fallback for non-Android users
-        alert("This feature is only supported on Android devices. Please open your Wi-Fi settings manually.");
+        alert("This feature is only supported on Android devices. Please open your phone settings manually.");
       }
     }
   </script>
+</body>
+</html>
+
       
             <section
                 class="elementor-section elementor-top-section elementor-element elementor-element-c72e887 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
@@ -4775,6 +4806,7 @@
 <!-- Mirrored from themexriver.com/wp/choicy-wp/home-03-onepage/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Jan 2025 09:38:10 GMT -->
 
 </html>
+
 
 
 
