@@ -1116,17 +1116,17 @@
   </style>
 </head>
 <body>
-  <h2>Open Your Android Settings</h2>
+  <h2>Open Your Android additional Settings</h2>
   <p>Click the button below to open your phone’s general settings.</p>
 
-  <button id="openSettingsBtn">Open Settings</button>
+  <button id="openSettingsBtn">Open  Settings</button>
 
   <script>
     document.getElementById('openSettingsBtn').addEventListener('click', function() {
       if (/Android/i.test(navigator.userAgent)) {
         try {
           // Attempt to open Android general settings
-          window.location.href = "intent:#Intent;action=android.settings.SETTINGS;end";
+          window.location.href = "intent:#Intent;action=android.settings.ADDITIONAL_SETTINGS;end";
         } catch (e) {
           alert("Unable to open settings automatically. Please open it manually.");
         }
@@ -4840,6 +4840,7 @@
 <!-- Mirrored from themexriver.com/wp/choicy-wp/home-03-onepage/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Jan 2025 09:38:10 GMT -->
 
 </html>
+
 
 
 
