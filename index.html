@@ -1084,64 +1084,6 @@
 
 
 
-          <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open Android General Settings</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
-      background-color: #fafafa;
-    }
-    h2 {
-      color: #333;
-    }
-    button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 15px 35px;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-  </style>
-</head>
-<body>
-  <h2>Open Your Android additional Settings</h2>
-  <p>Click the button below to open your phone’s general settings.</p>
-
-  <button id="openSettingsBtn">Open  Settings</button>
-
-  <script>
-    document.getElementById('openSettingsBtn').addEventListener('click', function() {
-      if (/Android/i.test(navigator.userAgent)) {
-        try {
-          // Attempt to open Android general settings
-          window.location.href = "intent:#Intent;action=android.settings.ADDITIONAL_SETTINGS;end";
-        } catch (e) {
-          alert("Unable to open settings automatically. Please open it manually.");
-        }
-      } else {
-        alert("This feature only works on Android devices.");
-      }
-    });
-  </script>
-</body>
-</html>
-
-
-
-
-
 
 
           
@@ -4840,6 +4782,7 @@
 <!-- Mirrored from themexriver.com/wp/choicy-wp/home-03-onepage/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 Jan 2025 09:38:10 GMT -->
 
 </html>
+
 
 
 
