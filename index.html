@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Suleiman | Shopify Expert Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #a7f3d0;
+            --secondary: #ffffff;
+            --dark: #111827;
+            --dark-light: #f8fafc;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
+            --border-radius: 12px;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .header-scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .header-scrolled .navbar {
+            padding: 10px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--secondary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image-container {
+            position: relative;
+        }
+
+        .profile-image {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-bg {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Advanced Sections */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            margin-top: 25px;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--dark-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--secondary);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 25px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background-color: var(--secondary);
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 25px;
+            background-color: transparent;
+            border: 1px solid var(--light-gray);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--secondary);
+            border-color: var(--primary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background-color: var(--secondary);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .portfolio-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: rgba(16, 185, 129, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* Skills Section */
+        .skills-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .skills-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .skill-circle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .circle-container {
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+
+        .circle-bg {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--dark-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary) 0% var(--p), transparent var(--p) 100%);
+            mask: radial-gradient(transparent 55px, #000 56px);
+            -webkit-mask: radial-gradient(transparent 55px, #000 56px);
+        }
+
+        .circle-value {
+            position: relative;
+            z-index: 2;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .skill-circle p {
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .skill-item {
+            margin-bottom: 10px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: var(--dark-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Process Section */
+        .process {
+            background-color: var(--dark-light);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--light-gray);
+            z-index: 1;
+        }
+
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .step-content p {
+            color: var(--gray);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--secondary);
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 20px;
+        }
+
+        .testimonial-item {
+            background-color: var(--secondary);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-item::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 5rem;
+            color: rgba(16, 185, 129, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            margin-bottom: 25px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+        }
+
+        .form-control {
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-light);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 50%;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Upload Section */
+        .upload-section {
+            background-color: var(--dark-light);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            text-align: center;
+            border: 2px dashed rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .upload-section:hover {
+            border-color: var(--primary);
+        }
+
+        .upload-area {
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .upload-area i {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .upload-area h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .upload-area p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* EcomElites Portfolio Section */
+        #ecomelites-portfolio {
+            --green: #10b981;
+            --black: #111827;
+            --white: #ffffff;
+            --gray: #6b7280;
+            font-family: 'Poppins', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            padding: 80px 20px;
+        }
+        #ecomelites-portfolio h1 {
+            text-align: center;
+            color: var(--green);
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+        #ecomelites-portfolio p.subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        #ecomelites-portfolio .categories {
+            display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:30px;
+        }
+        #ecomelites-portfolio .categories button {
+            background:transparent;border:1px solid var(--green);color:var(--green);
+            padding:8px 16px;border-radius:20px;cursor:pointer;transition:.3s;font-weight:500;
+        }
+        #ecomelites-portfolio .categories button.active,
+        #ecomelites-portfolio .categories button:hover {
+            background:var(--green);color:var(--white);
+        }
+        #ecomelites-portfolio .projects {
+            max-width:1200px;margin:auto;
+        }
+        #ecomelites-portfolio .grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(270px,1fr));
+            gap:20px;
+        }
+        #ecomelites-portfolio .card {
+            background:var(--white);
+            border:1px solid rgba(0, 0, 0, 0.1);
+            border-radius:12px;
+            overflow:hidden;
+            box-shadow:0 2px 8px rgba(0,0,0,0.08);
+            transition:transform .3s, box-shadow .3s;
+        }
+        #ecomelites-portfolio .card:hover {
+            transform:translateY(-5px);
+            box-shadow:0 4px 16px rgba(0,0,0,0.12);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+        #ecomelites-portfolio .card img {
+            width:100%;
+            height:180px;
+            object-fit:cover;
+        }
+        #ecomelites-portfolio .card-body {
+            padding:16px;
+        }
+        #ecomelites-portfolio .card-body h3 {
+            margin:0 0 8px;
+            color:var(--black);
+            font-size:18px;
+            font-weight:600;
+        }
+        #ecomelites-portfolio .card-body p {
+            color:var(--gray);
+            font-size:14px;
+            line-height:1.5;
+        }
+        #ecomelites-portfolio .card-body .tag {
+            display:inline-block;
+            background:var(--green);
+            color:var(--white);
+            padding:2px 10px;
+            font-size:12px;
+            border-radius:8px;
+            margin-bottom:8px;
+        }
+        #ecomelites-portfolio .btn {
+            display:block;
+            margin:30px auto 0;
+            padding:12px 24px;
+            border:none;
+            border-radius:8px;
+            background:var(--green);
+            color:var(--white);
+            cursor:pointer;
+            font-weight:600;
+            transition:background .3s;
+        }
+        #ecomelites-portfolio .btn:hover {
+            background:var(--primary-dark);
+        }
+
+        /* Team Section */
+        #ecomelites-portfolio .team {
+            background:var(--dark-light);
+            padding:60px 20px;
+            text-align:center;
+            margin-top:60px;
+            border-radius: var(--border-radius);
+        }
+        #ecomelites-portfolio .team h2 {
+            color:var(--black);
+            font-size:28px;
+            margin-bottom:30px;
+        }
+        #ecomelites-portfolio .team-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+            gap:20px;
+            max-width:1000px;
+            margin:auto;
+        }
+        #ecomelites-portfolio .member {
+            background:var(--white);
+            border:1px solid rgba(0, 0, 0, 0.1);
+            border-radius:12px;
+            padding:20px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        #ecomelites-portfolio .member:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+        #ecomelites-portfolio .member img {
+            width:100px;
+            height:100px;
+            border-radius:50%;
+            object-fit:cover;
+            margin-bottom:10px;
+            border: 2px solid var(--green);
+        }
+        #ecomelites-portfolio .member h4 {
+            color:var(--green);
+            margin:5px 0;
+        }
+        #ecomelites-portfolio .member p {
+            font-size:14px;
+            color:var(--gray);
+        }
+
+        /* EcomElites Reviews Section */
+        #ecomelites-reviews{
+            --green:#10b981;
+            --black:#111827;
+            --white:#ffffff;
+            --gray:#6b7280;
+            --yellow:#FFD166;
+            background:var(--white);
+            color:var(--black);
+            font-family:Poppins,sans-serif;
+            padding:60px 20px;
+        }
+        #ecomelites-reviews h2{
+            text-align:center;
+            color:var(--green);
+            font-size:32px;
+            margin-bottom:30px;
+        }
+        #ecomelites-reviews .review-wrapper{
+            max-width:1100px;margin:auto;
+            display:grid;grid-template-columns:350px 1fr;gap:24px;
+        }
+        @media(max-width:900px){#ecomelites-reviews .review-wrapper{grid-template-columns:1fr}}
+        #ecomelites-reviews .card{
+            background:var(--white);
+            border:1px solid rgba(0, 0, 0, 0.1);
+            border-radius:16px;
+            padding:24px;
+            box-shadow:0 3px 10px rgba(0,0,0,.08);
+        }
+        #ecomelites-reviews label{display:block;margin:10px 0 5px;font-weight:600; color: var(--black);}
+        #ecomelites-reviews input,#ecomelites-reviews textarea,#ecomelites-reviews range{
+            width:100%;
+            padding:10px;
+            background:var(--white);
+            border:1px solid rgba(0, 0, 0, 0.1);
+            border-radius:8px;
+            font-family:inherit;
+            color: var(--black);
+        }
+        #ecomelites-reviews textarea{min-height:100px;}
+        #ecomelites-reviews button{
+            margin-top:12px;
+            padding:12px 20px;
+            background:var(--green);
+            border:none;
+            border-radius:8px;
+            color:var(--white);
+            font-weight:600;
+            cursor:pointer;
+            transition:.3s;
+        }
+        #ecomelites-reviews button:hover{background:var(--primary-dark);}
+        #ecomelites-reviews .stars{display:flex;gap:6px;font-size:28px;cursor:pointer;margin:10px 0;}
+        #ecomelites-reviews .star{color:#ccc;}
+        #ecomelites-reviews .star.active{color:var(--yellow);}
+
+        /* Right side summary */
+        #ecomelites-reviews .summary{text-align:center;margin-bottom:20px;}
+        #ecomelites-reviews .summary h3{margin:0;font-size:40px;color:var(--green);}
+        #ecomelites-reviews .summary small{color:var(--gray);}
+        #ecomelites-reviews .stars-sm{color:var(--yellow);font-size:18px;margin:4px 0;}
+        #ecomelites-reviews .bar-wrap{margin-top:10px;}
+        #ecomelites-reviews .bar-row{display:flex;align-items:center;gap:8px;margin:4px 0;}
+        #ecomelites-reviews .bar{flex:1;height:8px;background:var(--dark-light);border-radius:8px;overflow:hidden;}
+        #ecomelites-reviews .bar i{display:block;height:100%;background:var(--green);width:0%;transition:width .5s;}
+
+        #ecomelites-reviews .reviews{display:grid;gap:15px;margin-top:20px;}
+        #ecomelites-reviews .rev{
+            background:var(--dark-light);
+            padding:16px;
+            border-radius:12px;
+            border:1px solid rgba(0, 0, 0, 0.1);
+        }
+        #ecomelites-reviews .rev-header{display:flex;align-items:center;gap:10px;}
+        #ecomelites-reviews .avatar{
+            width:40px;height:40px;border-radius:50%;
+            background:var(--green);display:grid;place-items:center;
+            font-weight:700;color:var(--white);
+        }
+        #ecomelites-reviews .name{font-weight:700; color: var(--black);}
+        #ecomelites-reviews .company{color:var(--gray);font-size:13px;}
+        #ecomelites-reviews .date{font-size:12px;color:var(--gray);}
+        #ecomelites-reviews .rev-body{margin-top:8px;font-size:15px;line-height:1.5;color:var(--black);}
+        #ecomelites-reviews .metrics{font-size:12px;margin-top:6px;color:var(--gray);}
+
+        /* Rich Text Section */
+        .rich-text {
+            background-color: var(--dark-light);
+            padding: 80px 0;
+        }
+
+        .rich-text-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rich-text-content h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--dark);
+        }
+
+        .rich-text-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .text-block {
+            background-color: var(--secondary);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .text-block:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .text-block h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .text-block p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+
+        .text-block ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .text-block li {
+            padding: 8px 0;
+            color: var(--gray);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .text-block li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .skills-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .portfolio-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-visual {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <span>MS</span>
+                    <div class="logo-dot"></div>
+                </div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#process">Process</a>
+                    <a href="#ecomelites-portfolio">Projects</a>
+                    <a href="#ecomelites-reviews">Reviews</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="btn btn-outline"><a href="admin-login.html">Admin</a></button>
+                    <button class="btn btn-primary"><a href="https://wa.link/9scrm7">Hire Me</a></button>
+                </div>
+                <style>
+                    a{
+                        text-decoration: none;
+                        color: #000;
+                    }
+                </style>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-image-container">
+                    <div class="profile-bg"></div>
+                    <img src="https://brighterbusinessgrowth.pro/wp-content/uploads/2024/01/r3-img-1-scaled.png" alt="Profile Picture" class="profile-image">
+                </div>
+                <div class="hero-text">
+                    <span class="hero-badge">Shopify Specialist & Digital Marketer</span>
+                    <h1>Muhammad Suleiman<br>Sales & Traffic Strategist</h1>
+                    
+                    <p>
+                    Hi, I’m Muhammad Suleiman, a Shopify Specialist and Digital Marketer from West Africa, currently based in the Philippines (Shopify Partner ID: 3076044). I build Shopify stores that don’t just look great—they convert visitors into loyal buyers. Many store owners believe design alone drives sales, but it’s often the small details like slow speed or poor checkout flow that hurt results. I focus on fixing those gaps through clean design, smart marketing, and conversion strategy, helping brands grow consistently and build trust with their customers.
+                    </p>
+
+                    <!-- 🔥 EcomElites Hero Stats (Dual Script Live Counter) -->
+                    <div class="hero-stats" style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;font-family:Poppins,sans-serif;">
+                        <div class="stat-item" style="text-align:center;">
+                            <span class="stat-value" style="display:block;font-size:32px;font-weight:700;color:#00C853;">5+</span>
+                            <span class="stat-label" style="color:#0D0D0D;">Years Experience</span>
+                        </div>
+                        <div class="stat-item" style="text-align:center;">
+                            <span id="totalProjects" class="stat-value" style="display:block;font-size:32px;font-weight:700;color:#00C853;">0</span>
+                            <span class="stat-label" style="color:#0D0D0D;">Projects Completed</span>
+                        </div>
+                        <div class="stat-item" style="text-align:center;">
+                            <span id="happyClients" class="stat-value" style="display:block;font-size:32px;font-weight:700;color:#00C853;">0</span>
+                            <span class="stat-label" style="color:#0D0D0D;">Happy Clients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Services</h2>
+                <p>Comprehensive Shopify solutions to grow your e-commerce business</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Shopify Store Setup</h3>
+                    <p>Complete Shopify store setup from scratch, including theme selection, product import, and payment gateway configuration.</p>
+                    <button class="btn btn-primary"><a href="https://wa.link/6mcjqz">Learn More</a></button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Custom Theme Design</h3>
+                    <p>Fully customized Shopify themes tailored to your brand identity with responsive design and optimized user experience.</p>
+                    <button class="btn btn-primary"><a href="https://wa.link/ji11xu">Learn More</a></button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce Optimization</h3>
+                    <p>Conversion rate optimization, speed enhancement, and SEO improvements to maximize your store's performance.</p>
+                    <button class="btn btn-primary"><a href="https://wa.link/nbge7p">Learn More</a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Skills & Expertise</h2>
+                <p>My technical skills and areas of expertise that I bring to every project</p>
+            </div>
+            <div class="skills-content">
+                <div class="skills-visual">
+                    <div class="skill-circle">
+                        <div class="circle-container">
+                            <div class="circle-bg">
+                                <span class="circle-value">95%</span>
+                            </div>
+                            <div class="circle-progress" style="--p: 95%"></div>
+                        </div>
+                        <p>Shopify Development</p>
+                    </div>
+                    <div class="skill-circle">
+                        <div class="circle-container">
+                            <div class="circle-bg">
+                                <span class="circle-value">90%</span>
+                            </div>
+                            <div class="circle-progress" style="--p: 90%"></div>
+                        </div>
+                        <p>UI/UX Design</p>
+                    </div>
+                    <div class="skill-circle">
+                        <div class="circle-container">
+                            <div class="circle-bg">
+                                <span class="circle-value">85%</span>
+                            </div>
+                            <div class="circle-progress" style="--p: 85%"></div>
+                        </div>
+                        <p>Liquid Programming</p>
+                    </div>
+                    <div class="skill-circle">
+                        <div class="circle-container">
+                            <div class="circle-bg">
+                                <span class="circle-value">80%</span>
+                            </div>
+                            <div class="circle-progress" style="--p: 80%"></div>
+                        </div>
+                        <p>E-commerce Strategy</p>
+                    </div>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Shopify Theme Customization</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>App Integration</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Conversion Optimization</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Mobile-First Design</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span>Performance Optimization</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Process</h2>
+                <p>A structured approach to delivering exceptional Shopify solutions</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Discovery & Planning</h3>
+                        <p>We discuss your business goals, target audience, and requirements to create a detailed project plan.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Design & Prototyping</h3>
+                        <p>I create wireframes and design mockups for your approval before starting development.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Development & Testing</h3>
+                        <p>Your Shopify store is built with attention to detail and thoroughly tested across devices.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Launch & Support</h3>
+                        <p>Your store goes live, and I provide ongoing support to ensure everything runs smoothly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rich Text Section -->
+    <section class="rich-text">
+        <div class="container">
+            <div class="rich-text-content">
+                <h2>Why Choose Me for Your Shopify Project?</h2>
+                <div class="rich-text-grid">
+                    <div class="text-block">
+                        <h3>Expertise You Can Trust</h3>
+                        <p>With over 5 years of experience specializing in Shopify development, I have the skills and knowledge to bring your e-commerce vision to life.</p>
+                        <ul>
+                            <li>Certified Shopify Expert</li>
+                            <li>Proven track record with 127+ successful stores</li>
+                            <li>Deep understanding of e-commerce best practices</li>
+                            <li>Continuous learning to stay ahead of trends</li>
+                        </ul>
+                    </div>
+                    <div class="text-block">
+                        <h3>Results-Driven Approach</h3>
+                        <p>I focus on creating Shopify stores that not only look great but also drive conversions and grow your business.</p>
+                        <ul>
+                            <li>Conversion-focused design principles</li>
+                            <li>Mobile-first responsive development</li>
+                            <li>SEO-optimized structure and content</li>
+                            <li>Performance optimization for fast loading</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EcomElites Portfolio Section -->
+    <section id="ecomelites-portfolio">
+        <div class="header">
+            <h1>EcomElites Projects</h1>
+            <p class="subtitle">Discover our most creative and results-driven work.</p>
+        </div>
+
+        <div class="categories" id="ec-categories"></div>
+
+        <div class="projects">
+            <div class="grid" id="ec-projectGrid"></div>
+            <button id="ec-loadMoreBtn" class="btn">Load More</button>
+        </div>
+
+        <div class="team">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid" id="ec-teamGrid"></div>
+        </div>
+
+        <script>
+            const API="https://script.google.com/macros/s/AKfycbyhBN6EFQZAgIoB_R3vvj3HsTbMxxuh6OKVHxTJz_Bw27Kd7iKtR9YNV-hlTph8NqFy/exec";
+            let allProjects=[],visibleCount=8;
+
+            // Load Categories
+            async function loadCategories(){
+                try{
+                    const res=await fetch(API+"?action=listCategories");
+                    const data=await res.json();
+                    const catBox=document.getElementById("ec-categories");
+                    catBox.innerHTML='<button class="active" data-cat="all">All</button>';
+                    data.forEach(cat=>{
+                        catBox.innerHTML+=`<button data-cat="${cat.category}">${cat.category}</button>`;
+                    });
+                    document.querySelectorAll("#ecomelites-portfolio .categories button").forEach(btn=>{
+                        btn.onclick=()=>{
+                            document.querySelectorAll("#ecomelites-portfolio .categories button").forEach(b=>b.classList.remove("active"));
+                            btn.classList.add("active");
+                            filterProjects(btn.dataset.cat);
+                        };
+                    });
+                }catch(err){console.error("Categories load error",err);}
+            }
+
+            // Load Projects
+            async function loadProjects(){
+                try{
+                    const res=await fetch(API+"?action=listProjects");
+                    allProjects=await res.json();
+                    renderProjects("all");
+                }catch(err){console.error("Projects load error",err);}
+            }
+
+            // Render Projects
+            function renderProjects(category="all"){
+                const box=document.getElementById("ec-projectGrid");
+                box.innerHTML="";
+                const filtered=category==="all"?allProjects:allProjects.filter(p=>p.category===category);
+                const visible=filtered.slice(0,visibleCount);
+                visible.forEach(p=>{
+                    box.innerHTML+=`
+                    <div class="card">
+                        <img src="${p.image}" alt="${p.name}">
+                        <div class="card-body">
+                        <span class="tag">${p.category}</span>
+                        <h3>${p.name}</h3>
+                        <p>${p.description}</p>
+                        <a href="${p.link}" target="_blank" class="btn" style="margin-top:10px;">View Project</a>
+                        </div>
+                    </div>`;
+                });
+                const loadMore=document.getElementById("ec-loadMoreBtn");
+                loadMore.style.display=filtered.length>visibleCount?"block":"none";
+                loadMore.onclick=()=>{visibleCount+=8;renderProjects(category);};
+            }
+
+            function filterProjects(cat){visibleCount=8;renderProjects(cat);}
+
+            // Load Team
+            async function loadTeam(){
+                try{
+                    const res=await fetch(API+"?action=listTeams");
+                    const data=await res.json();
+                    const box=document.getElementById("ec-teamGrid");
+                    box.innerHTML="";
+                    data.forEach(m=>{
+                        box.innerHTML+=`
+                        <div class="member">
+                            <img src="${m.photo}" alt="${m.name}">
+                            <h4>${m.name}</h4>
+                            <p>${m.role}</p>
+                            <p>${m.bio||""}</p>
+                        </div>`;
+                    });
+                }catch(err){console.error("Team load error",err);}
+            }
+
+            // Init
+            loadCategories();
+            loadProjects();
+            loadTeam();
+        </script>
+    </section>
+
+    <!-- EcomElites Reviews Section -->
+    <section id="ecomelites-reviews">
+        <h2>Client Reviews</h2>
+        <div class="review-wrapper">
+            <!-- Left Form -->
+            <div class="card">
+                <h3 style="color:var(--green)">Leave a Review</h3>
+                <form id="ec-reviewForm">
+                    <label>Name</label>
+                    <input type="text" name="name" required>
+                    <label>Company / Store</label>
+                    <input type="text" name="company">
+                    <label>Overall Rating</label>
+                    <div class="stars" id="ec-stars">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                    </div>
+                    <label>Communication</label>
+                    <input type="range" min="1" max="5" value="5" name="communication">
+                    <label>Service Quality</label>
+                    <input type="range" min="1" max="5" value="5" name="service_quality">
+                    <label>Delivery Speed</label>
+                    <input type="range" min="1" max="5" value="5" name="delivery_speed">
+                    <label>Review</label>
+                    <textarea name="review" required></textarea>
+                    <button type="submit">Submit Review</button>
+                    <p id="ec-responseMsg" style="margin-top:8px;font-size:13px;color:#666"></p>
+                </form>
+            </div>
+
+            <!-- Right Display -->
+            <div class="card">
+                <div class="summary">
+                    <h3 id="ec-avgScore">–</h3>
+                    <div id="ec-avgStars" class="stars-sm"></div>
+                    <small id="ec-totalCount">0 reviews</small>
+                </div>
+                <div class="bar-wrap">
+                    <div class="bar-row"><span>5★</span><div class="bar"><i id="ec-b5"></i></div></div>
+                    <div class="bar-row"><span>4★</span><div class="bar"><i id="ec-b4"></i></div></div>
+                    <div class="bar-row"><span>3★</span><div class="bar"><i id="ec-b3"></i></div></div>
+                    <div class="bar-row"><span>2★</span><div class="bar"><i id="ec-b2"></i></div></div>
+                    <div class="bar-row"><span>1★</span><div class="bar"><i id="ec-b1"></i></div></div>
+                </div>
+                <hr style="margin:20px 0;border-color:var(--gray)">
+                <div class="reviews" id="ec-reviews"></div>
+                <!-- Load More Button -->
+                <div class="load-more-container" style="text-align: center; margin-top: 20px;">
+                    <button id="ec-loadMoreReviews" class="btn" style="display: none;">Load More Reviews</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const WEB_APP_URL="https://script.google.com/macros/s/AKfycbx3BF3XH1gpTtDKkmYVOD3CQOMkM4UBcDA3jKDSRQnWDjMwOBW6i5wjYpTJlYO8Vzbc/exec";
+            let rating=0;
+            let allReviews = [];
+            let currentPage = 1;
+            const reviewsPerPage = 5;
+            const stars=document.querySelectorAll("#ecomelites-reviews .star");
+            
+            stars.forEach(s=>{
+                s.onclick=()=>{
+                    rating=s.dataset.value;
+                    stars.forEach(x=>x.classList.toggle("active",x.dataset.value<=rating));
+                };
+            });
+
+            // Submit Review
+            const form=document.getElementById("ec-reviewForm");
+            form.onsubmit=async e=>{
+                e.preventDefault();
+                if(!rating)return alert("Please select a star rating");
+                const fd=new FormData(form);
+                fd.append("rating",rating);
+                const msg=document.getElementById("ec-responseMsg");
+                msg.textContent="Submitting...";
+                try{
+                    const res=await fetch(WEB_APP_URL,{method:"POST",body:fd});
+                    const text=await res.text();
+                    msg.textContent=text;
+                    form.reset();rating=0;stars.forEach(s=>s.classList.remove("active"));
+                    await loadStats();
+                    await loadAllReviews(); // Reload all reviews after submission
+                    currentPage = 1; // Reset to first page
+                    renderReviews();
+                }catch(err){msg.textContent="Failed: "+err;}
+            };
+
+            // Load All Reviews
+            async function loadAllReviews(){
+                const res=await fetch(WEB_APP_URL+"?action=list");
+                allReviews = await res.json();
+                // Sort reviews by date (newest first)
+                allReviews.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            }
+
+            // Render Reviews with Pagination
+            function renderReviews(){
+                const box=document.getElementById("ec-reviews");
+                const loadMoreBtn = document.getElementById("ec-loadMoreReviews");
+                
+                // Calculate start and end indices
+                const startIndex = 0;
+                const endIndex = currentPage * reviewsPerPage;
+                const reviewsToShow = allReviews.slice(startIndex, endIndex);
+                
+                box.innerHTML="";
+                reviewsToShow.forEach(r=>{
+                    const name=r.name||"Anonymous";
+                    const initials=name.split(" ").map(s=>s[0]).join("").slice(0,2).toUpperCase();
+                    const html=`
+                    <div class="rev">
+                        <div class="rev-header">
+                        <div class="avatar">${initials}</div>
+                        <div>
+                            <div class="name">${name}</div>
+                            <div class="company">${r.company||""}</div>
+                            <div class="stars-sm">${"★".repeat(r.rating)}${"☆".repeat(5-r.rating)}</div>
+                            <div class="date">${new Date(r.timestamp).toLocaleDateString()}</div>
+                        </div>
+                        </div>
+                        <div class="rev-body">${r.review}</div>
+                        <div class="metrics">Communication ${r.communication}/5 • Quality ${r.service_quality}/5 • Speed ${r.delivery_speed}/5</div>
+                    </div>`;
+                    box.insertAdjacentHTML("beforeend",html);
+                });
+                
+                // Show/hide load more button
+                if (endIndex < allReviews.length) {
+                    loadMoreBtn.style.display = "inline-block";
+                } else {
+                    loadMoreBtn.style.display = "none";
+                }
+            }
+
+            // Load More Reviews
+            document.getElementById("ec-loadMoreReviews").addEventListener("click", function() {
+                currentPage++;
+                renderReviews();
+            });
+
+            // Load Stats
+            async function loadStats(){
+                const res=await fetch(WEB_APP_URL+"?action=stats");
+                const data=await res.json();
+                const avg=data.average?Number(data.average).toFixed(1):"–";
+                document.getElementById("ec-avgScore").textContent=avg;
+                document.getElementById("ec-totalCount").textContent=data.count+" reviews";
+                document.getElementById("ec-avgStars").innerHTML="★".repeat(Math.round(data.average))+"☆".repeat(5-Math.round(data.average));
+                [5,4,3,2,1].forEach(i=>{
+                    const bar=document.getElementById("ec-b"+i);
+                    const pct=data.count?(data.breakdown[i]/data.count*100):0;
+                    bar.style.width=pct+"%";
+                });
+            }
+
+            // Init
+            loadStats();
+            loadAllReviews().then(() => {
+                renderReviews();
+            });
+        </script>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind? Let's discuss how we can work together</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@brighterbusinessgrowth.pro</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+63 975 2960 604</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Philippines</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.tiktok.com/@brighterbusinessgrowth?_r=1&_t=ZS-917WoogISoh"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/the.dynamicsalesagent?igsh=ZjJyM2NqcXV5Nmtn"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61583360579452"><i class="fab fa-facebook"></i></a>
+                        <a href="https://github.com/dynamicsalesagency"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Muhammad Suleiman</h3>
+                    <p>Creating beautiful digital experiences that make a difference.</p>
+                    <div class="social-links">
+                        <a href="https://www.tiktok.com/@brighterbusinessgrowth?_r=1&_t=ZS-917WoogISoh"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.instagram.com/the.dynamicsalesagent?igsh=ZjJyM2NqcXV5Nmtn"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61583360579452"><i class="fab fa-facebook"></i></a>
+                        <a href="https://github.com/dynamicsalesagency"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#ecomelites-portfolio">Projects</a></li>
+                        <li><a href="#ecomelites-reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Shopify Store Setup</a></li>
+                        <li><a href="#">Custom Theme Design</a></li>
+                        <li><a href="#">E-commerce Optimization</a></li>
+                        <li><a href="#">App Integration</a></li>
+                        <li><a href="#">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to my newsletter for the latest updates and insights.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" class="form-control" style="margin-bottom: 10px;">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Muhammad Suleiman. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Portfolio Filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // File Upload Functionality
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            
+            uploadArea.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                uploadArea.style.borderColor = 'var(--primary)';
+            });
+            
+            uploadArea.addEventListener('dragleave', function() {
+                uploadArea.style.borderColor = 'rgba(0, 0, 0, 0.1)';
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                uploadArea.style.borderColor = 'rgba(0, 0, 0, 0.1)';
+                
+                const files = e.dataTransfer.files;
+                handleFiles(files);
+            });
+            
+            fileInput.addEventListener('change', function() {
+                handleFiles(this.files);
+            });
+            
+            function handleFiles(files) {
+                if (files.length > 0) {
+                    alert(`You've selected ${files.length} file(s) for upload. In a real application, these would be processed and added to your portfolio.`);
+                    // Here you would typically upload the files to a server
+                    // and then add them to the portfolio grid
+                }
+            }
+            
+            // Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+            
+            // Animate skill bars on scroll
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            function animateSkillBars() {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 300);
+                });
+            }
+            
+            // Simple intersection observer to trigger animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+            
+            // Back to Top Button
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('active');
+                } else {
+                    backToTopButton.classList.remove('active');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 100) {
+                    header.classList.add('header-scrolled');
+                } else {
+                    header.classList.remove('header-scrolled');
+                }
+            });
+        });
+
+        // 🔥 EcomElites Hero Stats (Dual Script Live Counter)
+        const PROJECTS_API = "https://script.google.com/macros/s/AKfycbyhBN6EFQZAgIoB_R3vvj3HsTbMxxuh6OKVHxTJz_Bw27Kd7iKtR9YNV-hlTph8NqFy/exec";
+        const REVIEWS_API  = "https://script.google.com/macros/s/AKfycbx3BF3XH1gpTtDKkmYVOD3CQOMkM4UBcDA3jKDSRQnWDjMwOBW6i5wjYpTJlYO8Vzbc/exec";
+
+        // --- Load total projects ---
+        async function loadProjects(){
+            try{
+                const res = await fetch(PROJECTS_API + "?action=listProjects");
+                const data = await res.json();
+                animateCounter("totalProjects", data.length || 0);
+            }catch(err){
+                console.error("Projects count error:", err);
+            }
+        }
+
+        // --- Load total happy clients (5-star reviews) ---
+        async function loadHappyClients(){
+            try{
+                const res = await fetch(REVIEWS_API + "?action=list");
+                const data = await res.json();
+                const fiveStars = data.filter(r => Number(r.rating) === 5).length;
+                animateCounter("happyClients", fiveStars);
+            }catch(err){
+                console.error("Happy Clients count error:", err);
+            }
+        }
+
+        // --- Counter animation ---
+        function animateCounter(id, target){
+            const el = document.getElementById(id);
+            let current = 0;
+            const speed = Math.ceil(target / 40);
+            const timer = setInterval(()=>{
+                current += speed;
+                if(current >= target){
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = current;
+            },40);
+        }
+
+        // Run both
+        loadProjects();
+        loadHappyClients();
+    </script>
+</body>
+</html>

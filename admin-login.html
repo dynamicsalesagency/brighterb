@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Login</title>
+<style>
+  body{font-family:Poppins,sans-serif;background:#0b0d12;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;}
+  .card{background:#121520;padding:40px;border-radius:16px;max-width:400px;width:100%;}
+  input{width:100%;margin-bottom:15px;padding:12px;border-radius:8px;border:1px solid #1a2030;background:#0f131c;color:#fff;}
+  button{width:100%;padding:12px;border:none;background:#3b5fff;color:#fff;border-radius:8px;font-weight:600;cursor:pointer;}
+  p{margin-top:10px;color:#ccc;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Admin Login</h2>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <p id="msg"></p>
+  </div>
+<script>
+const API = "https://script.google.com/macros/s/AKfycbyhBN6EFQZAgIoB_R3vvj3HsTbMxxuh6OKVHxTJz_Bw27Kd7iKtR9YNV-hlTph8NqFy/exec";
+
+async function login(){
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const msg = document.getElementById("msg");
+  msg.textContent = "Logging in...";
+  const fd = new FormData();
+  fd.append("action","login");
+  fd.append("email",email);
+  fd.append("password",password);
+  const res = await fetch(API,{method:"POST",body:fd});
+  const data = await res.json();
+  if(data.success){
+    localStorage.setItem("admin_token",data.token);
+    window.location.href = "dashboard.html";
+  } else {
+    msg.textContent = "❌ Invalid credentials";
+  }
+}
+</script>
+</body>
+</html>

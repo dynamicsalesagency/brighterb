@@ -1,0 +1,332 @@
+<!-- 🔥 EcomElites Admin Dashboard (Embed Anywhere) -->
+<section id="ecomelites-dashboard">
+  <style>
+    :root{
+      --green:#00C853;
+      --black:#0D0D0D;
+      --white:#FFFFFF;
+      --gray:#E0E0E0;
+    }
+    #ecomelites-dashboard{
+      font-family:Poppins,sans-serif;
+      background:var(--white);
+      color:var(--black);
+      min-height:100vh;
+      display:flex;
+      margin:0;
+    }
+    /* Sidebar */
+    #ecomelites-dashboard .sidebar{
+      width:240px;
+      background:var(--black);
+      color:var(--white);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:20px;
+    }
+    #ecomelites-dashboard .sidebar .brand{
+      font-size:22px;
+      font-weight:700;
+      color:var(--green);
+      margin-bottom:20px;
+      text-align:center;
+    }
+    #ecomelites-dashboard .sidebar ul{list-style:none;padding:0;margin:0;}
+    #ecomelites-dashboard .sidebar li{
+      padding:12px;
+      margin-bottom:8px;
+      border-radius:6px;
+      cursor:pointer;
+      transition:.3s;
+    }
+    #ecomelites-dashboard .sidebar li.active,
+    #ecomelites-dashboard .sidebar li:hover{
+      background:var(--green);
+      color:var(--black);
+    }
+    #ecomelites-dashboard .sidebar button{
+      padding:10px;
+      border:none;
+      background:var(--green);
+      color:var(--black);
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    /* Main */
+    #ecomelites-dashboard .main{
+      flex:1;
+      background:var(--white);
+      display:flex;
+      flex-direction:column;
+      overflow:auto;
+    }
+    #ecomelites-dashboard .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:var(--white);
+      border-bottom:1px solid var(--gray);
+      padding:20px;
+      position:sticky;
+      top:0;
+      z-index:2;
+    }
+    #ecomelites-dashboard .stats{display:flex;gap:20px;}
+    #ecomelites-dashboard .stat{
+      border:1px solid var(--gray);
+      border-radius:8px;
+      padding:10px 16px;
+      text-align:center;
+    }
+    #ecomelites-dashboard .stat strong{
+      display:block;
+      font-size:20px;
+      color:var(--green);
+    }
+
+    /* Tabs & forms */
+    #ecomelites-dashboard .tab{padding:20px;display:none;}
+    #ecomelites-dashboard .tab.active{display:block;}
+    #ecomelites-dashboard h3{color:var(--green);}
+    #ecomelites-dashboard .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-bottom:20px;
+    }
+    #ecomelites-dashboard .form-grid textarea{grid-column:span 2;min-height:80px;}
+    #ecomelites-dashboard .form-grid button{
+      grid-column:span 2;
+      background:var(--green);
+      color:var(--black);
+      border:none;
+      border-radius:8px;
+      padding:10px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    #ecomelites-dashboard input,
+    #ecomelites-dashboard textarea{
+      padding:10px;
+      border:1px solid var(--gray);
+      border-radius:6px;
+      font-family:inherit;
+      font-size:14px;
+    }
+
+    /* Cards & lists */
+    #ecomelites-dashboard .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+      gap:15px;
+    }
+    #ecomelites-dashboard .card{
+      background:var(--white);
+      border:1px solid var(--gray);
+      border-radius:10px;
+      padding:12px;
+      box-shadow:0 2px 6px rgba(0,0,0,.05);
+      text-align:center;
+    }
+    #ecomelites-dashboard .card img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      border-radius:6px;
+      margin-bottom:8px;
+    }
+    #ecomelites-dashboard .card h4{margin:5px 0;color:var(--green);}
+    #ecomelites-dashboard .card p{font-size:14px;color:#333;}
+    #ecomelites-dashboard .list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    #ecomelites-dashboard .list-item{
+      background:var(--white);
+      border:1px solid var(--gray);
+      border-radius:8px;
+      padding:10px;
+    }
+  </style>
+
+  <div class="sidebar">
+    <div>
+      <div class="brand">EcomElites</div>
+      <nav>
+        <ul>
+          <li class="active" data-tab="projects">📁 Projects</li>
+          <li data-tab="categories">🏷️ Categories</li>
+          <li data-tab="teams">👥 Teams</li>
+          <li data-tab="settings">⚙️ Settings</li>
+        </ul>
+      </nav>
+    </div>
+    <button id="ec-logoutBtn">Logout</button>
+  </div>
+
+  <main class="main">
+    <header class="topbar">
+      <h2 id="ec-pageTitle">Projects</h2>
+      <div class="stats">
+        <div class="stat"><strong id="ec-totalProjects">0</strong><span>Projects</span></div>
+        <div class="stat"><strong id="ec-totalTeams">0</strong><span>Teams</span></div>
+        <div class="stat"><strong id="ec-totalCategories">0</strong><span>Categories</span></div>
+      </div>
+    </header>
+
+    <!-- Projects -->
+    <section id="ec-tab-projects" class="tab active">
+      <h3>Add Project</h3>
+      <form id="ec-projectForm" class="form-grid">
+        <input name="name" placeholder="Project Name" required>
+        <input name="category" placeholder="Category" required>
+        <input name="image" placeholder="Image URL" required>
+        <input name="link" placeholder="Project Link" required>
+        <textarea name="description" placeholder="Short Description" required></textarea>
+        <button type="submit">Add Project</button>
+      </form>
+      <h3>All Projects</h3>
+      <div id="ec-projectList" class="grid"></div>
+    </section>
+
+    <!-- Categories -->
+    <section id="ec-tab-categories" class="tab">
+      <h3>Add Category</h3>
+      <form id="ec-categoryForm" class="form-grid">
+        <input name="category" placeholder="Category Name" required>
+        <textarea name="description" placeholder="Description"></textarea>
+        <button type="submit">Add Category</button>
+      </form>
+      <h3>All Categories</h3>
+      <div id="ec-categoryList" class="list"></div>
+    </section>
+
+    <!-- Teams -->
+    <section id="ec-tab-teams" class="tab">
+      <h3>Add Team Member</h3>
+      <form id="ec-teamForm" class="form-grid">
+        <input name="name" placeholder="Name" required>
+        <input name="role" placeholder="Role" required>
+        <input name="photo" placeholder="Photo URL" required>
+        <textarea name="bio" placeholder="Short Bio"></textarea>
+        <button type="submit">Add Member</button>
+      </form>
+      <h3>Team Members</h3>
+      <div id="ec-teamList" class="grid"></div>
+    </section>
+
+    <!-- Settings -->
+    <section id="ec-tab-settings" class="tab">
+      <h3>Settings</h3>
+      <p>Connected to your Google Sheets backend. Update credentials in Apps Script if needed.</p>
+    </section>
+  </main>
+
+  <script>
+    const API="https://script.google.com/macros/s/AKfycbyhBN6EFQZAgIoB_R3vvj3HsTbMxxuh6OKVHxTJz_Bw27Kd7iKtR9YNV-hlTph8NqFy/exec";  // 🔧 Replace with your actual Apps Script URL
+
+    // Sidebar tab switching
+    document.querySelectorAll("#ecomelites-dashboard .sidebar li").forEach(li=>{
+      li.onclick=()=>{
+        document.querySelectorAll("#ecomelites-dashboard .sidebar li").forEach(el=>el.classList.remove("active"));
+        li.classList.add("active");
+        document.querySelectorAll("#ecomelites-dashboard .tab").forEach(t=>t.classList.remove("active"));
+        document.getElementById("ec-tab-"+li.dataset.tab).classList.add("active");
+        document.getElementById("ec-pageTitle").textContent=li.textContent.replace(/^[^A-Za-z]+/,'');
+      };
+    });
+
+    // Logout
+    document.getElementById("ec-logoutBtn").onclick=()=>{
+      localStorage.removeItem("admin_token");
+      alert("Logged out");
+      location.reload();
+    };
+
+    // ---- PROJECTS ----
+    async function loadProjects(){
+      const res=await fetch(API+"?action=listProjects");
+      const data=await res.json();
+      const box=document.getElementById("ec-projectList");
+      box.innerHTML="";
+      data.forEach(p=>{
+        box.innerHTML+=`
+          <div class="card">
+            <img src="${p.image}" alt="${p.name}">
+            <h4>${p.name}</h4>
+            <p>${p.category}</p>
+            <p>${p.description}</p>
+          </div>`;
+      });
+      document.getElementById("ec-totalProjects").textContent=data.length;
+    }
+    document.getElementById("ec-projectForm").onsubmit=async e=>{
+      e.preventDefault();
+      const fd=new FormData(e.target);
+      fd.append("action","addProject");
+      await fetch(API,{method:"POST",body:fd});
+      e.target.reset();
+      loadProjects();
+    };
+
+    // ---- CATEGORIES ----
+    async function loadCategories(){
+      const res=await fetch(API+"?action=listCategories");
+      const data=await res.json();
+      const box=document.getElementById("ec-categoryList");
+      box.innerHTML="";
+      data.forEach(c=>{
+        box.innerHTML+=`<div class="list-item"><strong>${c.category}</strong> - ${c.description}</div>`;
+      });
+      document.getElementById("ec-totalCategories").textContent=data.length;
+    }
+    document.getElementById("ec-categoryForm").onsubmit=async e=>{
+      e.preventDefault();
+      const fd=new FormData(e.target);
+      fd.append("action","addCategory");
+      await fetch(API,{method:"POST",body:fd});
+      e.target.reset();
+      loadCategories();
+    };
+
+    // ---- TEAMS ----
+    async function loadTeams(){
+      const res=await fetch(API+"?action=listTeams");
+      const data=await res.json();
+      const box=document.getElementById("ec-teamList");
+      box.innerHTML="";
+      data.forEach(m=>{
+        box.innerHTML+=`
+          <div class="card">
+            <img src="${m.photo}" alt="${m.name}">
+            <h4>${m.name}</h4>
+            <p>${m.role}</p>
+            <p>${m.bio||""}</p>
+          </div>`;
+      });
+      document.getElementById("ec-totalTeams").textContent=data.length;
+    }
+    document.getElementById("ec-teamForm").onsubmit=async e=>{
+      e.preventDefault();
+      const fd=new FormData(e.target);
+      fd.append("action","addTeam");
+      await fetch(API,{method:"POST",body:fd});
+      e.target.reset();
+      loadTeams();
+    };
+
+    // ---- INIT ----
+    loadProjects();
+    loadCategories();
+    loadTeams();
+  </script>
+</section>
+<!-- 🔚 End EcomElites Admin Dashboard -->
+
+
+
+
