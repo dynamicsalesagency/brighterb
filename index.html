@@ -516,34 +516,68 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
   </section>
 
 
-<!-- SOCIAL MEDIA DROPDOWN (RIGHT SIDE, DESKTOP + MOBILE) -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- SOCIAL MEDIA DROPDOWN (RIGHT SIDE, DESKTOP + MOBILE) WITH TITLE LABEL -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
   :root {
-    --accent: #10b981;   /* your green */
-    --bg-dark: #020617;  /* near-black */
+    --accent: #10b981;
+    --bg-dark: #020617;
     --icon-bg: #020617;
     --icon-border: #1f2937;
     --icon-color: #e5e7eb;
     --tooltip-bg: #020617;
   }
 
-  /* Wrapper: fixed to the RIGHT */
+  /* Wrapper: fixed right side */
   .social-widget {
     position: fixed;
     top: 50%;
     right: 22px;
     transform: translateY(-50%);
     z-index: 9999;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
-  /* Toggle button */
+  /* The small label/title */
+  .social-title {
+    background: rgba(2,6,23,0.85);
+    color: #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--icon-border);
+    white-space: nowrap;
+  }
+
+  /* Toggle Button */
   .social-toggle {
     width: 42px;
     height: 42px;
@@ -556,35 +590,31 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
     justify-content: center;
     cursor: pointer;
     font-size: 18px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    transition: 0.2s ease;
   }
 
   .social-toggle:hover {
     border-color: var(--accent);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     transform: translateX(-1px);
-  }
-
-  .social-toggle i {
-    transition: transform 0.2s ease, color 0.2s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   }
 
   .social-widget.open .social-toggle i {
-    transform: rotate(90deg);
     color: var(--accent);
+    transform: rotate(90deg);
   }
 
-  /* The actual icons list */
+  /* Dropdown icons container */
   .social-bar {
     display: flex;
     flex-direction: column;
     gap: 10px;
     max-height: 0;
-    overflow: hidden;
     opacity: 0;
+    overflow: hidden;
     transform: translateX(8px);
-    transition: max-height 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
     pointer-events: none;
+    transition: 0.25s ease;
   }
 
   .social-widget.open .social-bar {
@@ -595,7 +625,6 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
   }
 
   .social-link {
-    position: relative;
     width: 40px;
     height: 40px;
     border-radius: 999px;
@@ -605,9 +634,9 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
     align-items: center;
     justify-content: center;
     color: var(--icon-color);
-    text-decoration: none;
     font-size: 18px;
-    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    position: relative;
+    transition: 0.2s ease;
   }
 
   .social-link:hover {
@@ -617,21 +646,20 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   }
 
-  /* Tooltip label – appears to the LEFT (since icons are on the right) */
+  /* Tooltip (now appears on the left side) */
   .social-link span.label {
     position: absolute;
     right: 48px;
     padding: 4px 10px;
     border-radius: 999px;
     background: var(--tooltip-bg);
+    border: 1px solid #0f172a;
     color: #e5e7eb;
     font-size: 12px;
-    white-space: nowrap;
     opacity: 0;
     transform: translateX(4px);
-    pointer-events: none;
-    border: 1px solid #0f172a;
-    transition: opacity 0.18s ease, transform 0.18s ease;
+    white-space: nowrap;
+    transition: 0.18s ease;
   }
 
   .social-link:hover span.label {
@@ -639,7 +667,7 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
     transform: translateX(0);
   }
 
-  /* Platform tint colors (subtle) */
+  /* Platform tints */
   .facebook i { color: #3b82f6; }
   .instagram i { color: #f97316; }
   .tiktok i { color: #22d3ee; }
@@ -647,19 +675,23 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
   .whatsapp i { color: #22c55e; }
   .email i { color: #facc15; }
 
-  .social-link:hover i {
-    color: var(--accent);
-  }
+  .social-link:hover i { color: var(--accent); }
 
-  /* MOBILE: bottom-right, dropdown horizontally */
+  /* MOBILE: bottom-right */
   @media (max-width: 768px) {
     .social-widget {
-      top: auto;
       bottom: 16px;
       right: 16px;
+      top: auto;
       transform: none;
       align-items: flex-end;
       gap: 8px;
+    }
+
+    /* Shorter label for mobile */
+    .social-title {
+      padding: 5px 10px;
+      font-size: 11px;
     }
 
     .social-bar {
@@ -671,31 +703,30 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
       box-shadow: 0 12px 30px rgba(0,0,0,0.7);
     }
 
+    .social-link span.label {
+      display: none;
+    }
+
     .social-link {
       width: 36px;
       height: 36px;
-      box-shadow: none;
-      transform: none;
-    }
-
-    .social-link:hover {
-      transform: translateY(-1px);
-    }
-
-    .social-link span.label {
-      display: none; /* keep it clean on mobile */
     }
   }
 </style>
 
 <div class="social-widget">
-  <!-- Toggle button (always visible) -->
-  <button class="social-toggle" aria-label="Social links toggle">
+  
+  <!-- TITLE LABEL -->
+  <div class="social-title">Social & Contact</div>
+
+  <!-- Toggle Button -->
+  <button class="social-toggle">
     <i class="fa-solid fa-share-nodes"></i>
   </button>
 
-  <!-- DROPDOWN ICONS -->
+  <!-- ICONS -->
   <div class="social-bar">
+
     <a class="social-link facebook" href="https://www.facebook.com/profile.php?id=61583353684304" target="_blank">
       <i class="fab fa-facebook-f"></i>
       <span class="label">Facebook</span>
@@ -725,6 +756,7 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
       <i class="fa-solid fa-envelope"></i>
       <span class="label">Email</span>
     </a>
+
   </div>
 </div>
 
@@ -733,14 +765,15 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
     const widget = document.querySelector('.social-widget');
     const toggle = document.querySelector('.social-toggle');
 
-    if (widget && toggle) {
-      toggle.addEventListener('click', function () {
-        widget.classList.toggle('open');
-      });
-    }
+    toggle.addEventListener('click', function () {
+      widget.classList.toggle('open');
+    });
   });
 </script>
-<!-- END SOCIAL MEDIA DROPDOWN -->
+
+
+
+  
 
 
 
