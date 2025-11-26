@@ -356,7 +356,7 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
       <div>
         <span class="badge"><i class="fa-solid fa-bolt"></i> Shopify Expert • 5+ yrs</span>
         <h1 class="display">Fast stores. Smarter funnels. <span style="background:linear-gradient(90deg,var(--primary),#34d399); -webkit-background-clip:text; -webkit-text-fill-color:transparent">Measurable growth</span>.</h1>
-        <p class="lead">Hi, I’m <strong>Muhammad Suleiman,</strong> a Shopify Specialist and Digital Marketer from West Africa, currently based in the Philippines (Shopify Partner ID: 3076044). I build Shopify stores that don’t just look great—they convert visitors into loyal buyers. Many store owners believe design alone drives sales, but it’s often the small details like slow speed or poor checkout flow that hurt results. I focus on fixing those gaps through clean design, smart marketing, and conversion strategy, helping brands grow consistently and build trust with their customers.</p>
+        <p class="lead">Hi, I’m <strong>Muhammad Suleiman,</strong> an Ecommerce Specialist and Digital Marketer from West Africa, currently based in the Philippines (Shopify Partner ID: 3076044). I build Shopify stores that don’t just look great—they convert visitors into loyal buyers. Many store owners believe design alone drives sales, but it’s often the small details like slow speed or poor checkout flow that hurt results. I focus on fixing those gaps through clean design, smart marketing, and conversion strategy, helping brands grow consistently and build trust with their customers.</p>
         <div class="kpis" id="kpis">
           <div class="kpi"><strong id="kpiYears">5+</strong><small>Years Experience</small></div>
           <div class="kpi"><strong id="kpiProjects">0</strong><small>Projects Completed</small></div>
@@ -679,6 +679,1034 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
       </div>
     </div>
   </section>
+
+
+
+
+
+
+  <section id="bbg-stack">
+  <!-- ========== STYLES (IN-SECTION) ========== -->
+  <style>
+    :root {
+      --bbg-bg: #000000;
+      --bbg-card: #020617;
+      --bbg-border: rgba(148, 163, 184, 0.45);
+      --bbg-border-strong: #10b981;
+      --bbg-accent: #10b981;
+      --bbg-text-main: #e5e7eb;
+      --bbg-text-muted: #9ca3af;
+    }
+
+    #bbg-stack {
+      background: var(--bbg-bg);
+      color: var(--bbg-text-main);
+      padding: 60px 16px 70px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Inter", sans-serif;
+    }
+
+    .bbg-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .bbg-header {
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .bbg-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--bbg-accent);
+    }
+
+    .bbg-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffffff, var(--bbg-accent));
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.9);
+    }
+
+    .bbg-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-end;
+    }
+
+    .bbg-title {
+      font-size: clamp(26px, 3vw, 32px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #f9fafb;
+    }
+
+    .bbg-title span {
+      background: linear-gradient(to right, #22c55e, #06b6d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .bbg-sub {
+      max-width: 460px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--bbg-text-muted);
+    }
+
+    .bbg-sub b {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .bbg-meta {
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--bbg-text-muted);
+    }
+
+    .bbg-meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(75, 85, 99, 0.8);
+      background: #020617;
+    }
+
+    .bbg-meta-pill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--bbg-accent);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.9);
+    }
+
+    /* FILTERS */
+    .bbg-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+      margin-top: 18px;
+    }
+
+    .bbg-filter {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: #020617;
+      color: var(--bbg-text-muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .bbg-filter-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.75);
+    }
+
+    .bbg-filter[data-active="true"] {
+      border-color: var(--bbg-border-strong);
+      color: #ecfdf5;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 1),
+        0 0 18px rgba(16, 185, 129, 0.5);
+      background: radial-gradient(circle at 0 0, rgba(16, 185, 129, 0.25), #020617);
+    }
+
+    .bbg-filter[data-active="true"] .bbg-filter-dot {
+      background: var(--bbg-accent);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.9);
+    }
+
+    .bbg-filter:hover {
+      border-color: rgba(16, 185, 129, 0.7);
+    }
+
+    /* GRID WRAPPER */
+    .bbg-grid-wrap {
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: #020617;
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.95);
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    /* DESKTOP GRID */
+    .bbg-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    /* CARD */
+    .bbg-card {
+      position: relative;
+      border-radius: 16px;
+      padding: 10px 11px 9px;
+      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.18), transparent 60%),
+        #020617;
+      border: 1px solid rgba(51, 65, 85, 0.9);
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 78px;
+      transition: transform 0.16s ease-out, box-shadow 0.16s ease-out,
+        border-color 0.16s ease-out, background 0.16s ease-out;
+      opacity: 1;
+    }
+
+    .bbg-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--bbg-border-strong);
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 1);
+      background: radial-gradient(circle at 0 0, rgba(16, 185, 129, 0.18), transparent 60%),
+        #020617;
+    }
+
+    .bbg-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: space-between;
+    }
+
+    .bbg-logo-wrap {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: #f9fafb;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .bbg-logo-wrap img {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+
+    .bbg-labels {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .bbg-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #f9fafb;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bbg-cat {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--bbg-text-muted);
+    }
+
+    .bbg-badge {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--bbg-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      white-space: nowrap;
+    }
+
+    .bbg-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bbg-mini {
+      font-size: 10px;
+      color: var(--bbg-text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .bbg-mini span.key {
+      color: #cbd5f5;
+    }
+
+    .bbg-pill {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      color: var(--bbg-text-muted);
+      white-space: nowrap;
+    }
+
+    /* HIDDEN STATE (FILTER) */
+    .bbg-card.bbg-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+    }
+
+    /* MOBILE: SLIDER */
+    @media (max-width: 768px) {
+      #bbg-stack {
+        padding: 42px 14px 56px;
+      }
+
+      .bbg-grid-wrap {
+        padding: 14px 10px 16px;
+      }
+
+      .bbg-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .bbg-card {
+        min-width: 78%;
+        scroll-snap-align: center;
+      }
+    }
+
+    /* DESKTOP: 4 columns, more space */
+    @media (min-width: 769px) {
+      .bbg-card {
+        min-height: 90px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .bbg-title-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .bbg-sub {
+        max-width: none;
+      }
+    }
+  </style>
+
+  <div class="bbg-shell">
+    <header class="bbg-header">
+      <div class="bbg-eyebrow">
+        <span class="bbg-eyebrow-dot"></span>
+        <span>E-commerce platforms & growth tools</span>
+      </div>
+      <div class="bbg-title-row">
+        <h2 class="bbg-title">My <span>e-commerce & AI stack</span></h2>
+        <p class="bbg-sub">
+          The platforms I use daily to build, optimize and grow online stores –
+          from <b>Shopify builds</b> to <b>Google AI traffic</b>, social ads,
+          email marketing and automation.
+        </p>
+      </div>
+      <div class="bbg-meta">
+        <span class="bbg-meta-pill">
+          <span class="bbg-meta-pill-dot"></span>
+          Used in real client projects
+        </span>
+      </div>
+    </header>
+
+    <!-- FILTERS -->
+    <div class="bbg-filters" id="bbgStackFilters">
+      <button class="bbg-filter" data-filter="all" data-active="true">
+        <span class="bbg-filter-dot"></span> All
+      </button>
+      <button class="bbg-filter" data-filter="ecommerce">
+        <span class="bbg-filter-dot"></span> Ecommerce
+      </button>
+      <button class="bbg-filter" data-filter="marketplaces">
+        <span class="bbg-filter-dot"></span> Marketplaces
+      </button>
+      <button class="bbg-filter" data-filter="google">
+        <span class="bbg-filter-dot"></span> Google & Analytics
+      </button>
+      <button class="bbg-filter" data-filter="social">
+        <span class="bbg-filter-dot"></span> Social & Ads
+      </button>
+      <button class="bbg-filter" data-filter="email">
+        <span class="bbg-filter-dot"></span> Email & CRM
+      </button>
+      <button class="bbg-filter" data-filter="automation">
+        <span class="bbg-filter-dot"></span> Automation
+      </button>
+    </div>
+
+    <!-- GRID / SLIDER -->
+    <div class="bbg-grid-wrap">
+      <div class="bbg-grid" id="bbgStackGrid">
+        <!-- ========== ECOMMERCE (FIRST) ========== -->
+        <article class="bbg-card" data-category="ecommerce">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/shopify" alt="Shopify logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Shopify</div>
+              <div class="bbg-cat">Ecommerce Platform</div>
+            </div>
+            <div class="bbg-badge">Primary</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Full builds & CRO
+            </div>
+            <div class="bbg-pill">Themes • AI engine</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="ecommerce">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/woocommerce" alt="WooCommerce logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">WooCommerce</div>
+              <div class="bbg-cat">Ecommerce Platform</div>
+            </div>
+            <div class="bbg-badge">Platform</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Setup & migration
+            </div>
+            <div class="bbg-pill">WordPress stores</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="ecommerce">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/bigcommerce" alt="BigCommerce logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">BigCommerce</div>
+              <div class="bbg-cat">Ecommerce Platform</div>
+            </div>
+            <div class="bbg-badge">Platform</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Scaling & setup
+            </div>
+            <div class="bbg-pill">Headless-ready</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="ecommerce">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://media.licdn.com/dms/image/v2/C560BAQHu7_9a4B57Fg/company-logo_200_200/company-logo_200_200/0/1630660071385/magento_logo?e=2147483647&v=beta&t=91OEqm141uGmgqc174zsTJO3q65_6YCmoFjCQ07Ouh8" alt="Adobe Commerce (Magento) logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Adobe Commerce</div>
+              <div class="bbg-cat">Ecommerce Platform</div>
+            </div>
+            <div class="bbg-badge">Enterprise</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Strategy & audits
+            </div>
+            <div class="bbg-pill">High-catalog</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="ecommerce">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/prestashop" alt="PrestaShop logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">PrestaShop</div>
+              <div class="bbg-cat">Ecommerce Platform</div>
+            </div>
+            <div class="bbg-badge">Platform</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Optimization
+            </div>
+            <div class="bbg-pill">EU markets</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="ecommerce">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://outviocmsassets.s3.eu-central-1.amazonaws.com/ckyycu4cn00077b9g014g23u6.jpg" alt="OpenCart logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">OpenCart</div>
+              <div class="bbg-cat">Ecommerce Platform</div>
+            </div>
+            <div class="bbg-badge">Platform</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Store refresh
+            </div>
+            <div class="bbg-pill">Legacy → modern</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="ecommerce">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/squarespace" alt="Squarespace logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Squarespace</div>
+              <div class="bbg-cat">Site & Commerce</div>
+            </div>
+            <div class="bbg-badge">Brand</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Brand sites
+            </div>
+            <div class="bbg-pill">Content + store</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="ecommerce">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/webflow" alt="Webflow logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Webflow</div>
+              <div class="bbg-cat">Site & Ecommerce</div>
+            </div>
+            <div class="bbg-badge">No-code</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Landing pages
+            </div>
+            <div class="bbg-pill">Funnels • UI</div>
+          </div>
+        </article>
+
+        <!-- ========== MARKETPLACES ========== -->
+        <article class="bbg-card" data-category="marketplaces">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/amazon" alt="Amazon logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Amazon</div>
+              <div class="bbg-cat">Marketplace</div>
+            </div>
+            <div class="bbg-badge">Channel</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Listings & feeds
+            </div>
+            <div class="bbg-pill">Product sync</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="marketplaces">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/ebay" alt="eBay logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">eBay</div>
+              <div class="bbg-cat">Marketplace</div>
+            </div>
+            <div class="bbg-badge">Channel</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Multi-channel
+            </div>
+            <div class="bbg-pill">Listing boost</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="marketplaces">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/etsy" alt="Etsy logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Etsy</div>
+              <div class="bbg-cat">Marketplace</div>
+            </div>
+            <div class="bbg-badge">Channel</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Creative verticals
+            </div>
+            <div class="bbg-pill">Brand presence</div>
+          </div>
+        </article>
+
+        <!-- ========== GOOGLE & ANALYTICS ========== -->
+        <article class="bbg-card" data-category="google">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/googleads" alt="Google Ads logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Google Ads</div>
+              <div class="bbg-cat">Google & Analytics</div>
+            </div>
+            <div class="bbg-badge">Traffic</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> AI campaigns
+            </div>
+            <div class="bbg-pill">Shopping • PMax</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="google">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/googleanalytics" alt="Google Analytics logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Google Analytics</div>
+              <div class="bbg-cat">Google & Analytics</div>
+            </div>
+            <div class="bbg-badge">Measurement</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Revenue tracking
+            </div>
+            <div class="bbg-pill">GA4 events</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="google">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/googletagmanager" alt="Google Tag Manager logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Tag Manager</div>
+              <div class="bbg-cat">Google & Analytics</div>
+            </div>
+            <div class="bbg-badge">Tracking</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Pixels & events
+            </div>
+            <div class="bbg-pill">Clean setup</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="google">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/googlesearchconsole" alt="Google Search Console logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Search Console</div>
+              <div class="bbg-cat">Google & Analytics</div>
+            </div>
+            <div class="bbg-badge">SEO</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Organic insights
+            </div>
+            <div class="bbg-pill">Queries • index</div>
+          </div>
+        </article>
+
+        <!-- ========== SOCIAL & ADS ========== -->
+        <article class="bbg-card" data-category="social">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/meta" alt="Meta logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Meta</div>
+              <div class="bbg-cat">Social & Ads</div>
+            </div>
+            <div class="bbg-badge">Ecosystem</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Pixel & catalog
+            </div>
+            <div class="bbg-pill">Meta stack</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="social">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/facebook" alt="Facebook logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Facebook</div>
+              <div class="bbg-cat">Social & Ads</div>
+            </div>
+            <div class="bbg-badge">Social</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Campaigns
+            </div>
+            <div class="bbg-pill">Cold & warm</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="social">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/instagram" alt="Instagram logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Instagram</div>
+              <div class="bbg-cat">Social & Ads</div>
+            </div>
+            <div class="bbg-badge">Social</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Reels & UGC
+            </div>
+            <div class="bbg-pill">Visual funnel</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="social">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/tiktok" alt="TikTok logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">TikTok</div>
+              <div class="bbg-cat">Social & Ads</div>
+            </div>
+            <div class="bbg-badge">Performance</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Creative testing
+            </div>
+            <div class="bbg-pill">Short-form</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="social">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/pinterest" alt="Pinterest logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Pinterest</div>
+              <div class="bbg-cat">Social & Ads</div>
+            </div>
+            <div class="bbg-badge">Discovery</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Boards & pins
+            </div>
+            <div class="bbg-pill">Intent traffic</div>
+          </div>
+        </article>
+
+        <!-- ========== EMAIL & CRM ========== -->
+        <article class="bbg-card" data-category="email">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/brevo" alt="Brevo logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Brevo</div>
+              <div class="bbg-cat">Email & CRM</div>
+            </div>
+            <div class="bbg-badge">Email</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Flows & campaigns
+            </div>
+            <div class="bbg-pill">Automation</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="email">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://www.paubox.com/hubfs/amazon%20ses%20logo.jpg" alt="Amazon SES logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Amazon SES</div>
+              <div class="bbg-cat">Email & CRM</div>
+            </div>
+            <div class="bbg-badge">Delivery</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Reliable sending
+            </div>
+            <div class="bbg-pill">High volume</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="email">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/sendgrid" alt="SendGrid logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">SendGrid</div>
+              <div class="bbg-cat">Email & CRM</div>
+            </div>
+            <div class="bbg-badge">Email</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Transactional & marketing
+            </div>
+            <div class="bbg-pill">Templates</div>
+          </div>
+        </article>
+
+        <!-- ========== AUTOMATION ========== -->
+        <article class="bbg-card" data-category="automation">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/zapier" alt="Zapier logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Zapier</div>
+              <div class="bbg-cat">Automation</div>
+            </div>
+            <div class="bbg-badge">No-code</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Quick connects
+            </div>
+            <div class="bbg-pill">App ↔ app</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="automation">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/n8n" alt="n8n logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">n8n</div>
+              <div class="bbg-cat">Automation</div>
+            </div>
+            <div class="bbg-badge">Advanced</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Smart AI flows
+            </div>
+            <div class="bbg-pill">Custom logic</div>
+          </div>
+        </article>
+
+        <article class="bbg-card" data-category="automation">
+          <div class="bbg-card-header">
+            <div class="bbg-logo-wrap">
+              <img src="https://cdn.simpleicons.org/make" alt="Make.com logo" loading="lazy">
+            </div>
+            <div class="bbg-labels">
+              <div class="bbg-name">Make.com</div>
+              <div class="bbg-cat">Automation</div>
+            </div>
+            <div class="bbg-badge">Automation</div>
+          </div>
+          <div class="bbg-card-footer">
+            <div class="bbg-mini">
+              <span class="key">Role:</span> Visual workflows
+            </div>
+            <div class="bbg-pill">Complex routes</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SCRIPT (FILTERS + MOBILE AUTO SLIDE) ========== -->
+  <script>
+    (function () {
+      const grid = document.getElementById("bbgStackGrid");
+      const cards = Array.from(grid.querySelectorAll(".bbg-card"));
+      const filters = Array.from(
+        document.querySelectorAll("#bbgStackFilters .bbg-filter")
+      );
+
+      // ---- Filter logic ----
+      function applyFilter(category) {
+        cards.forEach((card) => {
+          const cat = card.getAttribute("data-category");
+          const show = category === "all" || cat === category;
+          if (show) {
+            card.classList.remove("bbg-hidden");
+          } else {
+            card.classList.add("bbg-hidden");
+          }
+        });
+      }
+
+      filters.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const filter = btn.getAttribute("data-filter");
+          filters.forEach((b) => b.setAttribute("data-active", "false"));
+          btn.setAttribute("data-active", "true");
+          applyFilter(filter);
+        });
+      });
+
+      // ---- Mobile slider (auto + swipe) ----
+      let currentIndex = 0;
+      let autoTimer = null;
+
+      function isMobile() {
+        return window.innerWidth <= 768;
+      }
+
+      function visibleCards() {
+        // cards that are not filtered out
+        return cards.filter((c) => !c.classList.contains("bbg-hidden"));
+      }
+
+      function slideTo(index) {
+        if (!isMobile()) return;
+        const list = visibleCards();
+        if (!list.length) return;
+        const i = ((index % list.length) + list.length) % list.length;
+        const card = list[i];
+        const offsetLeft = card.offsetLeft - grid.offsetLeft;
+        grid.scrollTo({
+          left: offsetLeft,
+          behavior: "smooth",
+        });
+        currentIndex = i;
+      }
+
+      function startAutoSlide() {
+        stopAutoSlide();
+        if (!isMobile()) return;
+        autoTimer = setInterval(() => {
+          slideTo(currentIndex + 1);
+        }, 3500);
+      }
+
+      function stopAutoSlide() {
+        if (autoTimer) {
+          clearInterval(autoTimer);
+          autoTimer = null;
+        }
+      }
+
+      // Stop auto slide when user interacts manually
+      grid.addEventListener("touchstart", stopAutoSlide, { passive: true });
+      grid.addEventListener("mousedown", stopAutoSlide);
+
+      window.addEventListener("resize", () => {
+        if (isMobile()) {
+          startAutoSlide();
+        } else {
+          stopAutoSlide();
+        }
+      });
+
+      // Init
+      applyFilter("all");
+      if (isMobile()) {
+        startAutoSlide();
+      }
+    })();
+  </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- FAQ -->
 <section id="faq" class="section">
