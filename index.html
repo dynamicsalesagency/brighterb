@@ -587,6 +587,667 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
     </div>
   </section>
 
+
+
+
+
+
+  <section id="sales-proof" class="gallery-section">
+
+<style>
+    .gallery-section {
+        padding: 80px 5%;
+        background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Animated background elements */
+    .gallery-section::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(0, 193, 106, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+        z-index: 0;
+        animation: pulse 8s infinite alternate;
+    }
+
+    .gallery-section::after {
+        content: '';
+        position: absolute;
+        bottom: -30%;
+        left: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(0, 193, 106, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+        z-index: 0;
+        animation: pulse 10s infinite alternate-reverse;
+    }
+
+    @keyframes pulse {
+        0% { opacity: 0.3; transform: scale(1); }
+        100% { opacity: 0.6; transform: scale(1.1); }
+    }
+
+    .gallery-title {
+        text-align: center;
+        font-size: 42px;
+        font-weight: 700;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+        letter-spacing: -0.5px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .gallery-title span {
+        color: #00C16A;
+        position: relative;
+    }
+
+    .gallery-title span::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, #00C16A, transparent);
+        border-radius: 2px;
+    }
+
+    .gallery-subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: #AAAAAA;
+        margin-bottom: 50px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Gallery grid */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .gallery-card {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s ease;
+        background: #111111;
+        cursor: pointer;
+        transform: translateY(20px);
+        opacity: 0;
+        animation: fadeInUp 0.6s forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .gallery-card:nth-child(2) { animation-delay: 0.1s; }
+    .gallery-card:nth-child(3) { animation-delay: 0.2s; }
+    .gallery-card:nth-child(4) { animation-delay: 0.3s; }
+    .gallery-card:nth-child(5) { animation-delay: 0.4s; }
+    .gallery-card:nth-child(6) { animation-delay: 0.5s; }
+    .gallery-card:nth-child(7) { animation-delay: 0.6s; }
+    .gallery-card:nth-child(8) { animation-delay: 0.7s; }
+    .gallery-card:nth-child(9) { animation-delay: 0.8s; }
+
+    .gallery-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 193, 106, 0.25);
+    }
+
+    .gallery-card:hover .gallery-img {
+        transform: scale(1.05);
+    }
+
+    .card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        padding: 30px 20px 20px;
+        transform: translateY(10px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .gallery-card:hover .card-overlay {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .view-icon {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.3s ease;
+    }
+
+    .gallery-card:hover .view-icon {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Modal */
+    #galleryModal {
+        display: none;
+        position: fixed;
+        z-index: 999999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 40px 20px;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    #galleryModal.active {
+        opacity: 1;
+    }
+
+    #galleryModal img {
+        margin: auto;
+        display: block;
+        max-width: 90%;
+        max-height: 85%;
+        border-radius: 12px;
+        box-shadow: 0 0 40px rgba(0, 193, 106, 0.2);
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+    }
+
+    #galleryModal.active img {
+        transform: scale(1);
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 25px;
+        right: 40px;
+        font-size: 45px;
+        color: #FFFFFF;
+        cursor: pointer;
+        font-weight: 700;
+        z-index: 10;
+        transition: color 0.2s, transform 0.2s;
+    }
+
+    .close-modal:hover {
+        color: #00C16A;
+        transform: scale(1.1);
+    }
+
+    /* Arrows */
+    .arrow {
+        position: absolute;
+        top: 50%;
+        font-size: 50px;
+        color: #00C16A;
+        cursor: pointer;
+        font-weight: 700;
+        transform: translateY(-50%);
+        padding: 15px;
+        user-select: none;
+        transition: all 0.2s;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .arrow:hover {
+        color: #FFFFFF;
+        background: rgba(0, 193, 106, 0.2);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    #arrowLeft { left: 30px; }
+    #arrowRight { right: 30px; }
+
+    /* Image counter */
+    .image-counter {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #FFFFFF;
+        font-size: 16px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 8px 16px;
+        border-radius: 20px;
+        z-index: 10;
+    }
+
+    /* Loading animation */
+    .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #00C16A;
+        animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    /* Grid layout toggle */
+    .layout-toggle {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        gap: 10px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .layout-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #CCCCCC;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+    }
+
+    .layout-btn.active {
+        background: rgba(0, 193, 106, 0.15);
+        color: #00C16A;
+        border-color: rgba(0, 193, 106, 0.5);
+    }
+
+    .layout-btn:hover {
+        background: rgba(0, 193, 106, 0.1);
+        color: #FFFFFF;
+    }
+
+    /* Compact layout */
+    .gallery-grid.compact {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .gallery-grid.compact .gallery-img {
+        height: 180px;
+    }
+
+    /* Masonry layout */
+    .gallery-grid.masonry {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-auto-rows: 10px;
+    }
+
+    .gallery-grid.masonry .gallery-card {
+        grid-row-end: span 30;
+    }
+
+    .gallery-grid.masonry .gallery-card.tall {
+        grid-row-end: span 40;
+    }
+
+    /* Download button */
+    .download-btn {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        background: rgba(0, 193, 106, 0.2);
+        color: #00C16A;
+        border: 1px solid rgba(0, 193, 106, 0.5);
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    .download-btn:hover {
+        background: rgba(0, 193, 106, 0.3);
+        color: #FFFFFF;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px){
+        .gallery-title { font-size: 34px; }
+        .gallery-subtitle { font-size: 16px; }
+        .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+        .gallery-img { height: 200px; }
+        .arrow { font-size: 40px; width: 50px; height: 50px; }
+        #arrowLeft { left: 15px; }
+        #arrowRight { right: 15px; }
+        .download-btn { bottom: 20px; right: 20px; }
+    }
+
+    @media(max-width: 600px){
+        .gallery-title { font-size: 28px; }
+        .gallery-grid { grid-template-columns: 1fr; }
+        .gallery-img { height: 220px; }
+        .arrow { font-size: 35px; width: 45px; height: 45px; }
+        .close-modal { right: 20px; font-size: 40px; }
+    }
+</style>
+
+<h2 class="gallery-title"><span>Sales</span> Proof</h2>
+<p class="gallery-subtitle">Visual evidence of successful campaigns and client results</p>
+
+<div class="layout-toggle">
+    <button class="layout-btn active" data-layout="standard">Standard</button>
+    <button class="layout-btn" data-layout="compact">Compact</button>
+    <button class="layout-btn" data-layout="masonry">Masonry</button>
+</div>
+
+<div class="gallery-grid">
+    <!-- Images will be inserted here -->
+    <div class="gallery-card">
+        <img src="https://i.pinimg.com/736x/6b/c3/a6/6bc3a619ebc867ea05b6f1dd3ebe2abe.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/delivery/asset/1e034bbbc63e8fcdee5d91181f4e8b7c-1744805081/Screenshot%202025-04-16%20120406.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card tall">
+        <img src="https://i.pinimg.com/736x/26/34/72/26347291e9242b96e8ca1d798d586a7f.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/delivery/asset/dd4a49b06ea719d5b5b5675972afbda6-1727441444/Screenshot%202024-09-27%20at%2015.16.46.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card tall">
+        <img src="https://i.pinimg.com/736x/38/52/f2/3852f2f265936aac92521e10b06e2258.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/234315952/original/51ef336d94dbb89dfd42c1a10178ad532b1aaafd/fix-facebook-and-instagram-ad-account-issues-3b66.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://i.pinimg.com/736x/cc/7b/04/cc7b04d4a01fc71098c7428e78f286ff.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card tall">
+        <img src="https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/03d5319ebe7c794dea52c03ee20d21d3-1756137716/Screenshot%202025-08-25%20150925/fix-facebook-and-instagram-ad-account-issues-3b66.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://i.pinimg.com/736x/fd/ce/9b/fdce9bea6a6c6810f0a446aa05cec57f.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://i.pinimg.com/736x/f9/0e/5e/f90e5e3398d0f8db446b54f006ef1ed4.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card tall">
+        <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/delivery/asset/ea09860b29f849a3600a651dc294ab49-1727357352/ad%20sets.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/delivery/asset/bc0d0cdca58e8083ea4e6cc707e2221f-1742155800/Screenshot%202025-03-16%20200932.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://i.pinimg.com/736x/db/74/22/db7422e74e5e7ef0d79ae8d3be42bff4.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card tall">
+        <img src="https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/730152864eed9585274e225e55be1a78-1763493061/ad%20video%20text%201/set-up-your-facebook-and-instagram-ads.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://i.pinimg.com/736x/42/30/ca/4230caaf06fd1f00a7a4cc8b7b5ae47e.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/delivery/asset/0dc9999dd41d496580804f481c3d1d6c-1747232754/IG-fixed.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card tall">
+        <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/be5007cfcb969f294bf303e95640de0e-1756983696/Screenshot%202025-09-04%20105852/fix-facebook-and-instagram-ad-account-issues-3b66.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/0e9a76e04daa5754315676df030d7385-1764083573/ad%20botox%201/set-up-your-facebook-and-instagram-ads.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/e05fb2e9508631fd8e1cd9f6055aed7f-1763736255/Screen%20Shot%202025-11-21%20at%207.42.31%20AM/set-up-your-facebook-and-instagram-ads.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card tall">
+        <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/234315952/original/c66d57dbc9fb8c9776c1a703ee96de7ba633aa98/fix-facebook-and-instagram-ad-account-issues-3b66.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/delivery/asset/df0b89138d4c5cebc78c3460999870d3-1748020199/Screenshot%202025-05-23%20170619.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://i.pinimg.com/736x/e6/e4/1f/e6e41f01ba86308f30c811bc6caf150b.jpg" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+    <div class="gallery-card tall">
+        <img src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/delivery/asset/9d26438d4df656db90bfb497750a7ed0-1741870853/Screenshot%202025-03-13%20125257.png" class="gallery-img">
+        <div class="view-icon">👁️</div>
+        <div class="card-overlay"></div>
+    </div>
+</div>
+
+<div id="galleryModal">
+    <span id="galleryClose" class="close-modal">&times;</span>
+    <span id="arrowLeft" class="arrow">&#10094;</span>
+    <img id="galleryModalImg">
+    <span id="arrowRight" class="arrow">&#10095;</span>
+    <div class="image-counter">
+        <span id="currentImage">1</span> / <span id="totalImages">24</span>
+    </div>
+    <button class="download-btn" id="downloadBtn">Download Image</button>
+</div>
+
+<script>
+    const modal = document.getElementById("galleryModal");
+    const modalImg = document.getElementById("galleryModalImg");
+    const closeModal = document.getElementById("galleryClose");
+    const arrowLeft = document.getElementById("arrowLeft");
+    const arrowRight = document.getElementById("arrowRight");
+    const currentImage = document.getElementById("currentImage");
+    const totalImages = document.getElementById("totalImages");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const layoutButtons = document.querySelectorAll(".layout-btn");
+    const galleryGrid = document.querySelector(".gallery-grid");
+
+    const cards = Array.from(document.querySelectorAll(".gallery-card"));
+    let currentIndex = 0;
+
+    // Set total images count
+    totalImages.textContent = cards.length;
+
+    function openModal(index) {
+        currentIndex = index;
+        modal.classList.add('active');
+        modal.style.display = "block";
+        modalImg.src = cards[index].querySelector('img').src;
+        currentImage.textContent = index + 1;
+        
+        // Add loading animation
+        modalImg.style.display = 'none';
+        setTimeout(() => {
+            modalImg.style.display = 'block';
+        }, 300);
+    }
+
+    cards.forEach((card, i) => {
+        card.addEventListener("click", () => {
+            openModal(i);
+        });
+    });
+
+    closeModal.onclick = () => {
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 300);
+    };
+    
+    modal.onclick = e => { 
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 300);
+        }
+    };
+
+    arrowRight.onclick = () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        modalImg.src = cards[currentIndex].querySelector('img').src;
+        currentImage.textContent = currentIndex + 1;
+    };
+
+    arrowLeft.onclick = () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        modalImg.src = cards[currentIndex].querySelector('img').src;
+        currentImage.textContent = currentIndex + 1;
+    };
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (modal.style.display === 'block') {
+            if (e.key === 'ArrowRight') {
+                arrowRight.onclick();
+            } else if (e.key === 'ArrowLeft') {
+                arrowLeft.onclick();
+            } else if (e.key === 'Escape') {
+                closeModal.onclick();
+            }
+        }
+    });
+
+    // Download functionality
+    downloadBtn.addEventListener('click', () => {
+        const imageUrl = cards[currentIndex].querySelector('img').src;
+        const link = document.createElement('a');
+        link.href = imageUrl;
+        link.download = `sales-proof-${currentIndex + 1}.jpg`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+
+    // Layout toggle functionality
+    layoutButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const layout = button.getAttribute('data-layout');
+            
+            // Update active button
+            layoutButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Apply layout
+            galleryGrid.className = 'gallery-grid';
+            if (layout !== 'standard') {
+                galleryGrid.classList.add(layout);
+            }
+        });
+    });
+
+    // Lazy loading for images
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    // Uncomment to enable lazy loading
+    // document.querySelectorAll('.gallery-img').forEach(img => {
+    //     img.dataset.src = img.src;
+    //     img.src = '';
+    //     img.classList.add('lazy');
+    //     imageObserver.observe(img);
+    // });
+</script>
+
+</section>
+
+  
+
   <!-- Process -->
   <section id="process" class="section">
     <div class="container">
