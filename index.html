@@ -465,6 +465,90 @@ textarea.input{min-height:120px;height:auto;resize:vertical}
     </div>
   </section>
 
+
+
+
+<!-- Add after header -->
+<div class="green-marquee">
+  <div class="marquee-inner">
+    <div class="marquee-content">
+      <span>🚀 Shopify Expert</span>
+      <span>•</span>
+      <span>🎯 Conversion Optimization</span>
+      <span>•</span>
+      <span>⚡ Speed Performance</span>
+      <span>•</span>
+      <span>📈 Growth Marketing</span>
+      <span>•</span>
+      <span>💫 Ecommerce Strategy</span>
+      <span>•</span>
+      <span>📱 Mobile-First Design</span>
+    </div>
+    <div class="marquee-content" aria-hidden="true">
+      <span>🚀 Shopify Expert</span>
+      <span>•</span>
+      <span>🎯 Conversion Optimization</span>
+      <span>•</span>
+      <span>⚡ Speed Performance</span>
+      <span>•</span>
+      <span>📈 Growth Marketing</span>
+      <span>•</span>
+      <span>💫 Ecommerce Strategy</span>
+      <span>•</span>
+      <span>📱 Mobile-First Design</span>
+    </div>
+  </div>
+</div>
+
+<style>
+.green-marquee {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  padding: 14px 0;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.marquee-inner {
+  display: flex;
+  animation: marquee-scroll 45s linear infinite;
+  width: max-content;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 32px;
+}
+
+.marquee-content span {
+  color: #04130d;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.marquee-content span:hover {
+  opacity: 1;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.green-marquee:hover .marquee-inner {
+  animation-play-state: paused;
+}
+</style>
+
+
+
+  
   <!-- Services -->
   <section id="services" class="section">
     <div class="container">
